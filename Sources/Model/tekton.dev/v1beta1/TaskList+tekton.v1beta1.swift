@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import SwiftkubeModel
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     struct TaskList: KubernetesResource, KubernetesResourceList {
         // MARK: Lifecycle
 
@@ -30,7 +29,7 @@ extension tekton.v1beta1 {
     }
 }
 
-extension tekton.v1beta1.TaskList {
+public extension tekton.v1beta1.TaskList {
     private enum CodingKeys: String, CodingKey {
         case apiVersion
         case kind
@@ -59,7 +58,7 @@ extension tekton.v1beta1.TaskList {
 extension tekton.v1beta1.TaskList: Sequence {
     public typealias Element = tekton.v1beta1.Task
 
-    func makeIterator() -> AnyIterator<tekton.v1beta1.Task> {
+    public func makeIterator() -> AnyIterator<tekton.v1beta1.Task> {
         AnyIterator(items.makeIterator())
     }
 }

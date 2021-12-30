@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import SwiftkubeModel
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     struct WorkspaceUsage: KubernetesResource {
         // MARK: Lifecycle
 
-        init(name: String,
+        public init(name: String,
              mountPath: String)
         {
             self.name = name
@@ -21,12 +20,12 @@ extension tekton.v1beta1 {
 
         // MARK: Internal
 
-        var name: String
-        var mountPath: String
+        public var name: String
+        public var mountPath: String
     }
 }
 
-extension tekton.v1beta1.WorkspaceUsage {
+public extension tekton.v1beta1.WorkspaceUsage {
     private enum CodingKeys: String, CodingKey {
         case name
         case mountPath

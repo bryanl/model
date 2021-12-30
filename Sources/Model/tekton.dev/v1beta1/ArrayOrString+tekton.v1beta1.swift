@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import SwiftkubeModel
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     struct ArrayOrString: KubernetesResource {
         // MARK: Lifecycle
 
-        init(arrayVal: [String] = [],
+        public init(arrayVal: [String] = [],
              stringVal: String = "",
              type: String = "string")
         {
@@ -23,13 +22,13 @@ extension tekton.v1beta1 {
 
         // MARK: Internal
 
-        var arrayVal: [String]
-        var stringVal: String
-        var type: String
+        public var arrayVal: [String]
+        public var stringVal: String
+        public var type: String
     }
 }
 
-extension tekton.v1beta1.ArrayOrString {
+public extension tekton.v1beta1.ArrayOrString {
     private enum CodingKeys: String, CodingKey {
         case arrayVal
         case stringVal

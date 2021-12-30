@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import SwiftkubeModel
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     struct WorkspaceDeclaration: KubernetesResource {
         // MARK: Lifecycle
 
-        init(name: String,
+        public init(name: String,
              description: String? = nil,
              mountPath: String? = nil,
              readOnly: Bool? = nil,
@@ -27,15 +26,15 @@ extension tekton.v1beta1 {
 
         // MARK: Internal
 
-        var name: String
-        var description: String?
-        var mountPath: String?
-        var readOnly: Bool?
-        var optional: Bool?
+        public var name: String
+        public var description: String?
+        public var mountPath: String?
+        public var readOnly: Bool?
+        public var optional: Bool?
     }
 }
 
-extension tekton.v1beta1.WorkspaceDeclaration {
+public extension tekton.v1beta1.WorkspaceDeclaration {
     private enum CodingKeys: String, CodingKey {
         case name
         case description

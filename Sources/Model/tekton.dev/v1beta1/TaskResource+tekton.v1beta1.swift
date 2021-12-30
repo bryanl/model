@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import SwiftkubeModel
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     struct TaskResource: KubernetesResource {
         // MARK: Lifecycle
 
-        init(name: String,
+        public init(name: String,
              type: tekton.v1beta1.PipelineResourceType,
              description: String,
              targetPath: String,
@@ -27,15 +26,15 @@ extension tekton.v1beta1 {
 
         // MARK: Internal
 
-        var name: String
-        var type: tekton.v1beta1.PipelineResourceType
-        var description: String
-        var targetPath: String
-        var optional: Bool
+        public var name: String
+        public var type: tekton.v1beta1.PipelineResourceType
+        public var description: String
+        public var targetPath: String
+        public var optional: Bool
     }
 }
 
-extension tekton.v1beta1.TaskResource {
+public extension tekton.v1beta1.TaskResource {
     private enum CodingKeys: String, CodingKey {
         case name
         case type

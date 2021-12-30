@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     enum ParamType: String, Codable {
         case string
         case array

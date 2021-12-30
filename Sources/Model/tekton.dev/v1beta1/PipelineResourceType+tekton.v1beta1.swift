@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import SwiftkubeModel
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     enum PipelineResourceType: String, Codable {
         case git
         case storage

@@ -1,7 +1,6 @@
 import Foundation
-import SwiftkubeModel
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     struct Task: KubernetesAPIResource, MetadataHavingResource, NamespacedResource, ReadableResource, ListableResource, CreatableResource,
         DeletableResource
     {
@@ -16,16 +15,16 @@ extension tekton.v1beta1 {
 
         // MARK: Internal
 
-        typealias List = tekton.v1beta1.TaskList
+        public typealias List = tekton.v1beta1.TaskList
 
-        let apiVersion: String = "tekton.dev/v1beta1"
-        let kind: String = "Task"
-        var metadata: meta.v1.ObjectMeta?
-        var spec: tekton.v1beta1.TaskSpec?
+        public let apiVersion: String = "tekton.dev/v1beta1"
+        public let kind: String = "Task"
+        public var metadata: meta.v1.ObjectMeta?
+        public var spec: tekton.v1beta1.TaskSpec?
     }
 }
 
-extension tekton.v1beta1.Task {
+public extension tekton.v1beta1.Task {
     private enum CodingKeys: String, CodingKey {
         case apiVersion
         case kind

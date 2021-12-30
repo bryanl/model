@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension tekton {
+public extension tekton {
     /// Namespace for tekton.dev/v1beta1
     enum v1beta1 {}
 }

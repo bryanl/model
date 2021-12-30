@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import SwiftkubeModel
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     struct TaskSpec: KubernetesResource {
         // MARK: Lifecycle
 
@@ -35,19 +34,19 @@ extension tekton.v1beta1 {
 
         // MARK: Internal
 
-        var resources: tekton.v1beta1.TaskResources?
-        var params: [tekton.v1beta1.ParamSpec]
-        var description: String
-        var steps: [tekton.v1beta1.Step]
-        var volumes: [core.v1.Volume]
-        var stepTemplate: core.v1.Container?
-        var sidecars: [tekton.v1beta1.Sidecar]
-        var workspaces: [tekton.v1beta1.WorkspaceDeclaration]
-        var results: [tekton.v1beta1.TaskResult]
+        public var resources: tekton.v1beta1.TaskResources?
+        public var params: [tekton.v1beta1.ParamSpec]
+        public var description: String
+        public var steps: [tekton.v1beta1.Step]
+        public var volumes: [core.v1.Volume]
+        public var stepTemplate: core.v1.Container?
+        public var sidecars: [tekton.v1beta1.Sidecar]
+        public var workspaces: [tekton.v1beta1.WorkspaceDeclaration]
+        public var results: [tekton.v1beta1.TaskResult]
     }
 }
 
-extension tekton.v1beta1.TaskSpec {
+public extension tekton.v1beta1.TaskSpec {
     private enum CodingKeys: String, CodingKey {
         case resources
         case params

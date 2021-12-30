@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import SwiftkubeModel
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     struct Step: KubernetesResource {
         // MARK: Lifecycle
 
-        init(args: [String]? = nil,
+        public init(args: [String]? = nil,
              command: [String]? = nil,
              env: [core.v1.EnvVar]? = nil,
              envFrom: [core.v1.EnvFromSource]? = nil,
@@ -69,36 +68,36 @@ extension tekton.v1beta1 {
 
         // MARK: Internal
 
-        var args: [String]?
-        var command: [String]?
-        var env: [core.v1.EnvVar]?
-        var envFrom: [core.v1.EnvFromSource]?
-        var image: String?
-        var imagePullPolicy: String?
-        var lifecycle: core.v1.Lifecycle?
-        var livenessProbe: core.v1.Probe?
-        var name: String
-        var ports: [core.v1.ContainerPort]?
-        var readinessProbe: core.v1.Probe?
-        var resources: core.v1.ResourceRequirements?
-        var securityContext: core.v1.SecurityContext?
-        var startupProbe: core.v1.Probe?
-        var stdin: Bool?
-        var stdinOnce: Bool?
-        var terminationMessagePath: String?
-        var terminationMessagePolicy: String?
-        var tty: Bool?
-        var volumeDevices: [core.v1.VolumeDevice]?
-        var volumeMounts: [core.v1.VolumeMount]?
-        var workingDir: String?
-        var script: String?
-        var timeout: Int32?
-        var workspaces: [tekton.v1beta1.WorkspaceUsage]?
-        var onError: String?
+        public var args: [String]?
+        public var command: [String]?
+        public var env: [core.v1.EnvVar]?
+        public var envFrom: [core.v1.EnvFromSource]?
+        public var image: String?
+        public var imagePullPolicy: String?
+        public var lifecycle: core.v1.Lifecycle?
+        public var livenessProbe: core.v1.Probe?
+        public var name: String
+        public var ports: [core.v1.ContainerPort]?
+        public var readinessProbe: core.v1.Probe?
+        public var resources: core.v1.ResourceRequirements?
+        public var securityContext: core.v1.SecurityContext?
+        public var startupProbe: core.v1.Probe?
+        public var stdin: Bool?
+        public var stdinOnce: Bool?
+        public var terminationMessagePath: String?
+        public var terminationMessagePolicy: String?
+        public var tty: Bool?
+        public var volumeDevices: [core.v1.VolumeDevice]?
+        public var volumeMounts: [core.v1.VolumeMount]?
+        public var workingDir: String?
+        public var script: String?
+        public var timeout: Int32?
+        public var workspaces: [tekton.v1beta1.WorkspaceUsage]?
+        public var onError: String?
     }
 }
 
-extension tekton.v1beta1.Step {
+public extension tekton.v1beta1.Step {
     private enum CodingKeys: String, CodingKey {
         case args
         case command

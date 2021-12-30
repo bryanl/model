@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import SwiftkubeModel
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     struct ParamSpec: KubernetesResource {
         // MARK: Lifecycle
 
@@ -25,14 +24,14 @@ extension tekton.v1beta1 {
 
         // MARK: Internal
 
-        var name: String
-        var type: tekton.v1beta1.ParamType
-        var description: String
-        var `default`: tekton.v1beta1.ArrayOrString?
+        public var name: String
+        public var type: tekton.v1beta1.ParamType
+        public var description: String
+        public var `default`: tekton.v1beta1.ArrayOrString?
     }
 }
 
-extension tekton.v1beta1.ParamSpec {
+public extension tekton.v1beta1.ParamSpec {
     private enum CodingKeys: String, CodingKey {
         case name
         case type

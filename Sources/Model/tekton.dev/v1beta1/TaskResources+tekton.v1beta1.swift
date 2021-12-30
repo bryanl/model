@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import SwiftkubeModel
 
-extension tekton.v1beta1 {
+public extension tekton.v1beta1 {
     struct TaskResources: KubernetesResource {
         // MARK: Lifecycle
 
@@ -21,12 +20,12 @@ extension tekton.v1beta1 {
 
         // MARK: Internal
 
-        var inputs: [tekton.v1beta1.TaskResource]
-        var outputs: [tekton.v1beta1.TaskResource]
+        public var inputs: [tekton.v1beta1.TaskResource]
+        public var outputs: [tekton.v1beta1.TaskResource]
     }
 }
 
-extension tekton.v1beta1.TaskResources {
+public extension tekton.v1beta1.TaskResources {
     private enum CodingKeys: String, CodingKey {
         case inputs
         case outputs
