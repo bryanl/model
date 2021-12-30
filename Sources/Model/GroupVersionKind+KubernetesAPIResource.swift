@@ -228,6 +228,9 @@ public extension GroupVersionKind {
 			self = .storageV1Beta1VolumeAttachment
 		case is storage.v1alpha1.VolumeAttachment.Type:
 			self = .storageV1Alpha1VolumeAttachment
+
+		case is tekton.v1beta1.Task.Type:
+			self = .tektonV1Beta1Task
 		default:
 			return nil
 		}
