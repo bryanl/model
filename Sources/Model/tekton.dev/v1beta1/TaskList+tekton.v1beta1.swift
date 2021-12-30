@@ -22,7 +22,7 @@ public extension tekton.v1beta1 {
 
         public typealias Item = tekton.v1beta1.Task
 
-        public let apiVersion: String = "tekton.dev/v1"
+        public let apiVersion: String = "tekton.dev/v1beta1"
         public let kind: String = "TaskList"
         public var metadata: meta.v1.ListMeta?
         public var items: [tekton.v1beta1.Task]
