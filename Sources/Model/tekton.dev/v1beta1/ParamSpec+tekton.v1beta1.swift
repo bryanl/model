@@ -33,10 +33,10 @@ public extension tekton.v1beta1 {
 
 public extension tekton.v1beta1.ParamSpec {
     private enum CodingKeys: String, CodingKey {
-        case name
-        case type
-        case description
-        case `default`
+        case name = "name"
+        case type = "type"
+        case description = "description"
+        case `default` = "default"
     }
 
     init(from decoder: Decoder) throws {
@@ -44,7 +44,7 @@ public extension tekton.v1beta1.ParamSpec {
         name = try container.decode(String.self, forKey: .name)
         type = try container.decodeIfPresent(tekton.v1beta1.ParamType.self, forKey: .type)
         description = try container.decodeIfPresent(String.self, forKey: .description)
-        self.default = try container.decodeIfPresent(tekton.v1beta1.ArrayOrString.self, forKey: .default)
+        `default` = try container.decodeIfPresent(tekton.v1beta1.ArrayOrString.self, forKey: .default)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -53,6 +53,6 @@ public extension tekton.v1beta1.ParamSpec {
         try encodingContainer.encode(name, forKey: .name)
         try encodingContainer.encode(type, forKey: .type)
         try encodingContainer.encode(description, forKey: .description)
-        try encodingContainer.encode(self.default, forKey: .default)
+        try encodingContainer.encode(`default`, forKey: .default)
     }
 }
