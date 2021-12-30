@@ -1,14 +1,10 @@
 import Foundation
 
 public extension tekton.v1beta1 {
-    struct Task: KubernetesAPIResource, MetadataHavingResource, NamespacedResource, ReadableResource, ListableResource, CreatableResource,
-        DeletableResource
-    {
+    struct Task: KubernetesAPIResource, MetadataHavingResource, NamespacedResource, ReadableResource, ListableResource, CreatableResource, ReplaceableResource, DeletableResource, CollectionDeletableResource {
         // MARK: Lifecycle
 
-        public init(metadata: meta.v1.ObjectMeta? = nil,
-                    spec: tekton.v1beta1.TaskSpec? = nil)
-        {
+        public init(metadata: meta.v1.ObjectMeta? = nil, spec: tekton.v1beta1.TaskSpec? = nil) {
             self.metadata = metadata
             self.spec = spec
         }
@@ -26,10 +22,10 @@ public extension tekton.v1beta1 {
 
 public extension tekton.v1beta1.Task {
     private enum CodingKeys: String, CodingKey {
-        case apiVersion
-        case kind
-        case metadata
-        case spec
+        case apiVersion = "apiVersion"
+        case kind = "kind"
+        case metadata = "metadata"
+        case spec = "spec"
     }
 
     init(from decoder: Decoder) throws {
