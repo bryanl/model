@@ -12,14 +12,14 @@ public extension tekton.v1beta1 {
         // MARK: Lifecycle
 
         public init(resources: tekton.v1beta1.TaskResources? = nil,
-                    params: [tekton.v1beta1.ParamSpec] = [],
-                    description: String = "",
-                    steps: [tekton.v1beta1.Step] = [],
-                    volumes: [core.v1.Volume] = [],
+                    params: [tekton.v1beta1.ParamSpec]? = nil,
+                    description: String? = nil,
+                    steps: [tekton.v1beta1.Step]? = nil,
+                    volumes: [core.v1.Volume]? = nil,
                     stepTemplate: core.v1.Container? = nil,
-                    sidecars: [tekton.v1beta1.Sidecar] = [],
-                    workspaces: [tekton.v1beta1.WorkspaceDeclaration] = [],
-                    results: [tekton.v1beta1.TaskResult] = [])
+                    sidecars: [tekton.v1beta1.Sidecar]? = nil,
+                    workspaces: [tekton.v1beta1.WorkspaceDeclaration]? = nil,
+                    results: [tekton.v1beta1.TaskResult]? = nil)
         {
             self.resources = resources
             self.params = params
@@ -35,14 +35,14 @@ public extension tekton.v1beta1 {
         // MARK: Internal
 
         public var resources: tekton.v1beta1.TaskResources?
-        public var params: [tekton.v1beta1.ParamSpec]
-        public var description: String
-        public var steps: [tekton.v1beta1.Step]
-        public var volumes: [core.v1.Volume]
+        public var params: [tekton.v1beta1.ParamSpec]?
+        public var description: String?
+        public var steps: [tekton.v1beta1.Step]?
+        public var volumes: [core.v1.Volume]?
         public var stepTemplate: core.v1.Container?
-        public var sidecars: [tekton.v1beta1.Sidecar]
-        public var workspaces: [tekton.v1beta1.WorkspaceDeclaration]
-        public var results: [tekton.v1beta1.TaskResult]
+        public var sidecars: [tekton.v1beta1.Sidecar]?
+        public var workspaces: [tekton.v1beta1.WorkspaceDeclaration]?
+        public var results: [tekton.v1beta1.TaskResult]?
     }
 }
 
@@ -62,14 +62,14 @@ public extension tekton.v1beta1.TaskSpec {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         resources = try container.decodeIfPresent(tekton.v1beta1.TaskResources.self, forKey: .resources)
-        params = try container.decode([tekton.v1beta1.ParamSpec].self, forKey: .params)
-        description = try container.decode(String.self, forKey: .description)
-        steps = try container.decode([tekton.v1beta1.Step].self, forKey: .steps)
-        volumes = try container.decode([core.v1.Volume].self, forKey: .volumes)
+        params = try container.decodeIfPresent([tekton.v1beta1.ParamSpec].self, forKey: .params)
+        description = try container.decodeIfPresent(String.self, forKey: .description)
+        steps = try container.decodeIfPresent([tekton.v1beta1.Step].self, forKey: .steps)
+        volumes = try container.decodeIfPresent([core.v1.Volume].self, forKey: .volumes)
         stepTemplate = try container.decodeIfPresent(core.v1.Container.self, forKey: .stepTemplate)
-        sidecars = try container.decode([tekton.v1beta1.Sidecar].self, forKey: .sidecars)
-        workspaces = try container.decode([tekton.v1beta1.WorkspaceDeclaration].self, forKey: .workspaces)
-        results = try container.decode([tekton.v1beta1.TaskResult].self, forKey: .results)
+        sidecars = try container.decodeIfPresent([tekton.v1beta1.Sidecar].self, forKey: .sidecars)
+        workspaces = try container.decodeIfPresent([tekton.v1beta1.WorkspaceDeclaration].self, forKey: .workspaces)
+        results = try container.decodeIfPresent([tekton.v1beta1.TaskResult].self, forKey: .results)
     }
 
     func encode(to encoder: Encoder) throws {

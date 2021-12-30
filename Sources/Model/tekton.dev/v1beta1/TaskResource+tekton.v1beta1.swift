@@ -13,9 +13,9 @@ public extension tekton.v1beta1 {
 
         public init(name: String,
              type: tekton.v1beta1.PipelineResourceType,
-             description: String,
-             targetPath: String,
-             optional: Bool)
+             description: String? = nil,
+             targetPath: String? = nil,
+             optional: Bool? = nil)
         {
             self.name = name
             self.type = type
@@ -28,9 +28,9 @@ public extension tekton.v1beta1 {
 
         public var name: String
         public var type: tekton.v1beta1.PipelineResourceType
-        public var description: String
-        public var targetPath: String
-        public var optional: Bool
+        public var description: String?
+        public var targetPath: String?
+        public var optional: Bool?
     }
 }
 
@@ -47,8 +47,8 @@ public extension tekton.v1beta1.TaskResource {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
         type = try container.decode(tekton.v1beta1.PipelineResourceType.self, forKey: .type)
-        description = try container.decode(String.self, forKey: .description)
-        targetPath = try container.decode(String.self, forKey: .targetPath)
-        optional = try container.decode(Bool.self, forKey: .optional)
+        description = try container.decodeIfPresent(String.self, forKey: .description)
+        targetPath = try container.decodeIfPresent(String.self, forKey: .targetPath)
+        optional = try container.decodeIfPresent(Bool.self, forKey: .optional)
     }
 }

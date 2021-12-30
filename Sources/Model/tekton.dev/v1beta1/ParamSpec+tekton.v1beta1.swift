@@ -12,8 +12,8 @@ public extension tekton.v1beta1 {
         // MARK: Lifecycle
 
         public init(name: String,
-                    type: tekton.v1beta1.ParamType,
-                    description: String,
+                    type: tekton.v1beta1.ParamType?=nil,
+                    description: String? = nil,
                     default: tekton.v1beta1.ArrayOrString? = nil)
         {
             self.name = name
@@ -25,8 +25,8 @@ public extension tekton.v1beta1 {
         // MARK: Internal
 
         public var name: String
-        public var type: tekton.v1beta1.ParamType
-        public var description: String
+        public var type: tekton.v1beta1.ParamType?
+        public var description: String?
         public var `default`: tekton.v1beta1.ArrayOrString?
     }
 }
@@ -42,8 +42,8 @@ public extension tekton.v1beta1.ParamSpec {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
-        type = try container.decode(tekton.v1beta1.ParamType.self, forKey: .type)
-        description = try container.decode(String.self, forKey: .description)
+        type = try container.decodeIfPresent(tekton.v1beta1.ParamType.self, forKey: .type)
+        description = try container.decodeIfPresent(String.self, forKey: .description)
         self.default = try container.decodeIfPresent(tekton.v1beta1.ArrayOrString.self, forKey: .default)
     }
 

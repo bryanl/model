@@ -11,8 +11,8 @@ public extension tekton.v1beta1 {
     struct TaskResources: KubernetesResource {
         // MARK: Lifecycle
 
-        public init(inputs: [tekton.v1beta1.TaskResource] = [],
-                    outputs: [tekton.v1beta1.TaskResource] = [])
+        public init(inputs: [tekton.v1beta1.TaskResource]? = nil,
+                    outputs: [tekton.v1beta1.TaskResource]? = nil)
         {
             self.inputs = inputs
             self.outputs = outputs
@@ -20,8 +20,8 @@ public extension tekton.v1beta1 {
 
         // MARK: Internal
 
-        public var inputs: [tekton.v1beta1.TaskResource]
-        public var outputs: [tekton.v1beta1.TaskResource]
+        public var inputs: [tekton.v1beta1.TaskResource]?
+        public var outputs: [tekton.v1beta1.TaskResource]?
     }
 }
 
@@ -33,8 +33,8 @@ public extension tekton.v1beta1.TaskResources {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        inputs = try container.decode([tekton.v1beta1.TaskResource].self, forKey: .inputs)
-        outputs = try container.decode([tekton.v1beta1.TaskResource].self, forKey: .outputs)
+        inputs = try container.decodeIfPresent([tekton.v1beta1.TaskResource].self, forKey: .inputs)
+        outputs = try container.decodeIfPresent([tekton.v1beta1.TaskResource].self, forKey: .outputs)
     }
 
     func encode(to encoder: Encoder) throws {
