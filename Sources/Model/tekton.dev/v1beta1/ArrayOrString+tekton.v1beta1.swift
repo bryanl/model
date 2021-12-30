@@ -36,8 +36,8 @@ public extension tekton.v1beta1 {
     }
 }
 
-public extension tekton.v1beta1.ArrayOrString {
-    init(from decoder: Decoder) throws {
+extension tekton.v1beta1.ArrayOrString: Codable {
+    public init(from decoder: Decoder) throws {
         if let value = try? decoder.singleValueContainer().decode(String.self) {
             stringVal = value
             type = "string"
@@ -50,7 +50,7 @@ public extension tekton.v1beta1.ArrayOrString {
         }
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var encodingContainer = encoder.singleValueContainer()
         if isString {
             try encodingContainer.encode(stringVal)

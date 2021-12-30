@@ -44,7 +44,7 @@ public extension tekton.v1beta1.ParamSpec {
         name = try container.decode(String.self, forKey: .name)
         type = try container.decodeIfPresent(tekton.v1beta1.ParamType.self, forKey: .type)
         description = try container.decodeIfPresent(String.self, forKey: .description)
-        `default` = try container.decodeIfPresent(tekton.v1beta1.ArrayOrString.self, forKey: .default)
+        self.default = try container.decodeIfPresent(tekton.v1beta1.ArrayOrString.self, forKey: .default)
     }
 
     func encode(to encoder: Encoder) throws {
