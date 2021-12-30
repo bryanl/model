@@ -121,6 +121,8 @@ public enum GroupVersionKind: String, CaseIterable {
 	case storageV1Beta1VolumeAttachment = "storage.k8s.io/v1beta1/VolumeAttachment"
 	case storageV1Alpha1VolumeAttachment = "storage.k8s.io/v1alpha1/VolumeAttachment"
 
+	case tektonV1Beta1Task = "tekton.dev/v1beta1/Task"
+
 	/// The group of this GroupVersionKind
 	public var group: String {
 		switch self {
@@ -313,6 +315,9 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "storage.k8s.io"
 		case .storageV1Alpha1VolumeAttachment:
 			return "storage.k8s.io"
+
+		case .tektonV1Beta1Task:
+			return "tekton.dev"
 		}
 	}
 
@@ -508,6 +513,9 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "v1beta1"
 		case .storageV1Alpha1VolumeAttachment:
 			return "v1alpha1"
+
+		case .tektonV1Beta1Task:
+			return "v1beta1"
 		}
 	}
 
@@ -703,6 +711,9 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "VolumeAttachment"
 		case .storageV1Alpha1VolumeAttachment:
 			return "VolumeAttachment"
+
+		case .tektonV1Beta1Task:
+			return "Task"
 		}
 	}
 
@@ -907,6 +918,9 @@ public enum GroupVersionKind: String, CaseIterable {
 			return "volumeattachments"
 		case .storageV1Alpha1VolumeAttachment:
 			return "volumeattachments"
+
+		case .tektonV1Beta1Task:
+			return "tasks"
 		}
 	}
 
@@ -1101,6 +1115,9 @@ public enum GroupVersionKind: String, CaseIterable {
 		case .storageV1Beta1VolumeAttachment:
 			return nil
 		case .storageV1Alpha1VolumeAttachment:
+			return nil
+
+		case .tektonV1Beta1Task:
 			return nil
 		}
 	}
@@ -1297,6 +1314,9 @@ public enum GroupVersionKind: String, CaseIterable {
 			return false
 		case .storageV1Alpha1VolumeAttachment:
 			return false
+
+		case .tektonV1Beta1Task:
+			return true
 		}
 	}
 }
